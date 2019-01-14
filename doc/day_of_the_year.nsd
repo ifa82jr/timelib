@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.29" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preForIn="foreach" stepFor="by" author="teilnehmer" created="2019-01-14" changedby="teilnehmer" changed="2019-01-14" origin="Structorizer 3.29" text="&#34;day_of_the_year mit den Parametern&#34;,&#34;day, month, year&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<alternative text="&#34;Prüfe mit !exists_date ob Datum existiert&#34;,&#34;mit Parametern day, month, year&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+			<qTrue>
+				<instruction text="&#34;return -1&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qTrue>
+			<qFalse color="ffffff">
+			</qFalse>
+		</alternative>
+		<instruction text="&#34;Declaration der Varable day_of_the_year mit Wert 0 &#34;,&#34;und der Variable i&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<for text="&#34;for i &#60;- 1 to month&#34;" comment="&#34;&#34;" counterVar="i" startValue="1" endValue="month" stepConst="1" style="COUNTER" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;day_of_the_year = day_of_the_year + (Aufruf der Funktion&#34;,&#34;get_days_for_month mit den Parametern month und year)&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFor>
+		</for>
+		<instruction text="&#34;day_of_the_year = day_of_the_year + day&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;return day_of_the_year&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+	</children>
+</root>

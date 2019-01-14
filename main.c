@@ -22,7 +22,7 @@ int main()
     printf("31.12.2000: %i\n", exists_date(31, 12, 2000));
     printf("14.12.2410: %i\n", exists_date(14, 12, 2410));
     printf("14.12.1200: %i\n", exists_date(14, 12, 1200));
-    printf("1.1.2000: %i\n", day_of_the_year(1, 1, 2000));
+    printf("1.1.2000: %i\n", day_of_the_year(9, 8, 2000));
     printf("4.2.2000: %i\n", day_of_the_year(4, 2, 2000));
     printf("%i\n", get_days_for_month(1, 2000));
     return 0;
