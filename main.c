@@ -25,5 +25,12 @@ int main()
     printf("1.1.2000: %i\n", day_of_the_year(9, 8, 2000));
     printf("4.2.2000: %i\n", day_of_the_year(4, 2, 2000));
     printf("%i\n", get_days_for_month(1, 2000));
+
+    int a, b, c;
+
+    input_date(&a, &b, &c);
+
+    printf("%i, %i, %i\n", a, b, c);
+
     return 0;
 }
