@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "timelib.h"
 
 /**
  *  Proves if the given year is an leap-year and if the year is not before 1582.
@@ -14,13 +15,13 @@
  *
  *  @return returns 1 if the given year is a leap_year, 0 if it is no leap_year and -1 if the year is invalid
  **/
-int is_leapyear(int year)
+int is_leapyear(struct date d)
 {
-    if (year < 1582) {
+    if (d.year < 1582) {
         return -1;
     }
 
-    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    return (d.year % 4 == 0 && d.year % 100 != 0) || (d.year % 400 == 0);
 }
 
 /**
@@ -42,7 +43,11 @@ int get_days_for_month(int month, int year)
         0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
     };
 
-    if (is_leapyear(year)) {
+    struct date d;
+    d.month = month;
+    d.year  = year;
+
+    if (is_leapyear(d)) {
         days[2] = 29;
     }
 
@@ -58,9 +63,9 @@ int get_days_for_month(int month, int year)
  *
  *  @return returns 0 if the date does not exist and 1 if it exists
  **/
-int exists_date(int day, int month, int year)
+int exists_date(struct date d)
 {
-    if (year < 1582 || year > 2400 || month < 1 || month > 12 || day < 1 || day > get_days_for_month(month, year)) {
+    if (d.year < 1582 || d.year > 2400 || d.month < 1 || d.month > 12 || d.day < 1 || d.day > get_days_for_month(d.month, d.year)) {
         return 0;
     }
 
@@ -77,19 +82,19 @@ int exists_date(int day, int month, int year)
  *
  *  @return returns the day of the year
  **/
-int day_of_the_year(int day, int month, int year)
+int day_of_the_year(struct date d)
 {
-    if (!exists_date(day, month, year)) {
+    if (!exists_date(d)) {
         return -1;
     }
 
     int day_of_the_year = 0, i;
 
-    for (i = 1; i < month; i++) {
-        day_of_the_year = day_of_the_year + get_days_for_month(i, year);
+    for (i = 1; i < d.month; i++) {
+        day_of_the_year = day_of_the_year + get_days_for_month(i, d.year);
     }
 
-    day_of_the_year = day_of_the_year + day;
+    day_of_the_year = day_of_the_year + d.day;
 
     return day_of_the_year;
 }
@@ -104,7 +109,7 @@ int day_of_the_year(int day, int month, int year)
  *
  *  @return 0
  **/
-int input_date(int *day, int *month, int *year)
+int input_date(struct date d)
 {
     int not_invalid;
 
@@ -112,17 +117,37 @@ int input_date(int *day, int *month, int *year)
         not_invalid = 1;
 
         printf("\nBitte geben Sie den Tag ihres Datums ein: ");
-        scanf("%i", day);
+        scanf("%i", &d.day);
         printf("\nBitte geben Sie den Monat ihres Datums ein: ");
-        scanf("%i", month);
+        scanf("%i", &d.month);
         printf("\nBitte geben sie das Jahr ihres Datums ein: ");
-        scanf("%i", year);
+        scanf("%i", &d.year);
 
-        if (exists_date(*day, *month, *year) == 0) {
+        if (exists_date(d) == 0) {
             not_invalid = 0;
             printf("\n\nUngueltiges Datum! Bitte erneut eingeben!\n\n");
         }
     } while (not_invalid == 0);
 
     return 0;
+}
+
+/**
+ *  This function create a date out of day, month and year.
+ *
+ *  @param *day memory address of the day
+ *  @param *month memory address of the month
+ *  @param *year memory address of the year
+ *
+ *  @return 0
+ **/
+struct date set_date(int day, int month, int year)
+{
+    struct date d;
+
+    d.day   = day;
+    d.month = month;
+    d.year  = year;
+
+    return d;
 }
