@@ -103,7 +103,7 @@ int day_of_the_year(struct date d)
  *
  *  @return 0
  **/
-int input_date(struct date d)
+int input_date(struct date *d)
 {
     int not_invalid;
 
@@ -111,13 +111,13 @@ int input_date(struct date d)
         not_invalid = 1;
 
         printf("\nBitte geben Sie den Tag ihres Datums ein: ");
-        scanf("%i", &d.day);
+        scanf("%i", &d->day);
         printf("\nBitte geben Sie den Monat ihres Datums ein: ");
-        scanf("%i", &d.month);
+        scanf("%i", &d->month);
         printf("\nBitte geben sie das Jahr ihres Datums ein: ");
-        scanf("%i", &d.year);
+        scanf("%i", &d->year);
 
-        if (exists_date(d) == 0) {
+        if (exists_date(*d) == 0) {
             not_invalid = 0;
             printf("\n\nUngueltiges Datum! Bitte erneut eingeben!\n\n");
         }

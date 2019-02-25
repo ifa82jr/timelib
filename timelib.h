@@ -22,7 +22,7 @@ int day_of_the_year(struct date d);
 
 int exists_date(struct date d);
 
-int input_date(struct date d);
+int input_date(struct date *d);
 
 struct date set_date(int day, int month, int year);
 

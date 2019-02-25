@@ -1,15 +1,15 @@
 # depslib dependency file v1.0
-1550411100 source:c:\users\teilnehmer.pc29\desktop\git\timelib\timelib.c
+1551082951 source:c:\users\teilnehmer.pc29\desktop\git\timelib\timelib.c
 	<stdio.h>
 	<stdlib.h>
 	"timelib.h"
 
-1550411103 source:c:\users\teilnehmer.pc29\desktop\git\timelib\main.c
+1551082911 source:c:\users\teilnehmer.pc29\desktop\git\timelib\main.c
 	<stdio.h>
 	<stdlib.h>
 	"timelib.h"
 
-1550411321 c:\users\teilnehmer.pc29\desktop\git\timelib\timelib.h
+1551082911 c:\users\teilnehmer.pc29\desktop\git\timelib\timelib.h
 
 1548643322 source:g:\it6-berufsschule\portablegit\timelib\main.c
 	<stdio.h>
