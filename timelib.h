@@ -1,3 +1,9 @@
+/**
+ *  Julian Rutsch
+ *
+ *  A library which contains various functions for the day, months and year calculation
+ **/
+
 #ifndef TIMELIB_H_INCLUDED
 #define TIMELIB_H_INCLUDED
 

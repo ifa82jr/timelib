@@ -11,7 +11,7 @@
 /**
  *  Proves if the given year is an leap-year and if the year is not before 1582.
  *
- *  @param year the year which will be proved
+ *  @param d the given date with d.year as the given year
  *
  *  @return returns 1 if the given year is a leap_year, 0 if it is no leap_year and -1 if the year is invalid
  **/
@@ -57,9 +57,7 @@ int get_days_for_month(int month, int year)
 /**
  *  This function proves if the given date is valid. The year limits are 1582 - 2400.
  *
- *  @param day day of the given date
- *  @param month month of the given date
- *  @param year year of the given date
+ *  @param d the given date with d.day, d.month and d.year
  *
  *  @return returns 0 if the date does not exist and 1 if it exists
  **/
@@ -76,9 +74,7 @@ int exists_date(struct date d)
  *  This function returns the day of the year. Leap-years will be considered.
  *  If the given date is not correct, -1 will be returned.
  *
- *  @param day day of the given date
- *  @param month month of the given date
- *  @param year year of the given date
+ *  @param d the given date with d.day, d.month and d.year
  *
  *  @return returns the day of the year
  **/
@@ -103,9 +99,7 @@ int day_of_the_year(struct date d)
  *  This function reads in 3 integer values ​​for day, month, and year.
  *  If the read-in date is invalid, it is read in until a valid date has been entered.
  *
- *  @param *day memory address of the day
- *  @param *month memory address of the month
- *  @param *year memory address of the year
+ *  @param d the given date with d.day, d.month and d.year
  *
  *  @return 0
  **/
@@ -133,7 +127,7 @@ int input_date(struct date d)
 }
 
 /**
- *  This function create a date out of day, month and year.
+ *  This function creates a date out of day, month and year.
  *
  *  @param *day memory address of the day
  *  @param *month memory address of the month
